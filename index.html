@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Portfolio | System</title>
+    <title>N4VEGA_DEV_PORTFOLIO | System</title>
     <style>
         /* Reset */
         body, html {
@@ -11,7 +11,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* */
+            overflow: hidden; 
             background-color: #153c32; /* cor de fundo */
         }
 
@@ -36,7 +36,7 @@
             font-family: 'Courier New', monospace;
             text-shadow: 0 0 10px rgba(63, 255, 164, 0.5);
             text-align: center;
-            pointer-events: none; /* mouse interage com vanta */
+            pointer-events: none; /* mouse interage com vanta por trás do texto */
         }
 
         .glitch-text {
@@ -45,6 +45,7 @@
             border-right: 3px solid #3fffa4;
             white-space: nowrap;
             overflow: hidden;
+            /* A animação de digitação leva exatos 3.5s */
             animation: typing 3.5s steps(30, end), blink .75s step-end infinite;
         }
 
@@ -57,6 +58,75 @@
             from, to { border-color: transparent }
             50% { border-color: #3fffa4 }
         }
+
+        /* --- ESTILO DOS BOTÕES E ATRASO --- */
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            pointer-events: auto; 
+            
+            /* Novo: Começa invisível e espera 3.5s para rodar a animação */
+            opacity: 0; 
+            animation: terminalBoot 0.4s ease forwards;
+            animation-delay: 3.5s; /* Sincronizado com o fim do texto */
+        }
+
+        /* Animação de boot (piscada de tela CRT) */
+        @keyframes terminalBoot {
+            0%   { opacity: 0; transform: scale(0.95); }
+            20%  { opacity: 1; }
+            40%  { opacity: 0; }
+            60%  { opacity: 1; }
+            80%  { opacity: 0.5; }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .hacker-btn {
+            background: rgba(63, 255, 164, 0.1);
+            border: 1px solid #3fffa4;
+            color: #3fffa4;
+            padding: 12px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            outline: none;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        /* Efeito ao passar o mouse */
+        .hacker-btn:hover {
+            background: rgba(63, 255, 164, 0.3);
+            box-shadow: 0 0 15px #3fffa4, inset 0 0 10px #3fffa4;
+            text-shadow: 0 0 5px #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Colchetes que aparecem no hover */
+        .hacker-btn::before {
+            content: '[';
+            position: absolute;
+            left: 5px;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .hacker-btn::after {
+            content: ']';
+            position: absolute;
+            right: 5px;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .hacker-btn:hover::before { opacity: 1; left: 2px; }
+        .hacker-btn:hover::after { opacity: 1; right: 2px; }
+
     </style>
 </head>
 <body>
@@ -66,6 +136,12 @@
     <div class="overlay-content">
         <h1 class="glitch-text">INITIALIZING BYPASS...</h1>
         <p>[ LOGIN: N4VEGA_DEV ]</p>
+        
+        <div class="button-container">
+            <button class="hacker-btn" onclick="window.location.href='https://github.com/seu-github'">GitHub</button>
+            <button class="hacker-btn" onclick="window.location.href='https://linkedin.com/in/seu-linkedin'">LinkedIn</button>
+            <button class="hacker-btn" onclick="window.location.href='projetos.html'">Projetos</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -73,7 +149,7 @@
 
     <script>
         VANTA.NET({
-          el: "#vanta-bg", // mesmo id da div
+          el: "#vanta-bg", 
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
@@ -81,9 +157,9 @@
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x3fffa4,       // cor1
-          backgroundColor: 0x153c32, //cor2
-          points: 15.00,         // aumentei levemente os pontos 
+          color: 0x3fffa4,       
+          backgroundColor: 0x153c32, 
+          points: 15.00,         
           maxDistance: 22.00,
           spacing: 15.00
         })
