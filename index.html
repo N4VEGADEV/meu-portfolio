@@ -45,7 +45,7 @@
             border-right: 3px solid #3fffa4;
             white-space: nowrap;
             overflow: hidden;
-            /* A animação de digitação leva exatos 3.5s */
+            /* animação digitação leva exatos 3.5s */
             animation: typing 3.5s steps(30, end), blink .75s step-end infinite;
         }
 
@@ -59,20 +59,20 @@
             50% { border-color: #3fffa4 }
         }
 
-        /* --- ESTILO DOS BOTÕES E ATRASO --- */
+        /* --- style buttons and slowless --- */
         .button-container {
             margin-top: 40px;
             display: flex;
             gap: 20px;
             pointer-events: auto; 
             
-            /* Novo: Começa invisível e espera 3.5s para rodar a animação */
+            /*  começa invisível e espera 3.5s para rodar a animação */
             opacity: 0; 
             animation: terminalBoot 0.4s ease forwards;
-            animation-delay: 3.5s; /* Sincronizado com o fim do texto */
+            animation-delay: 3.5s; /* sincorniza com o fim do texto */
         }
 
-        /* Animação de boot (piscada de tela CRT) */
+        /* animação de boot (piscada de tela CRT) */
         @keyframes terminalBoot {
             0%   { opacity: 0; transform: scale(0.95); }
             20%  { opacity: 1; }
@@ -99,7 +99,7 @@
             text-decoration: none;
         }
 
-        /* Efeito ao passar o mouse */
+        /* efeito ao passar o mouse */
         .hacker-btn:hover {
             background: rgba(63, 255, 164, 0.3);
             box-shadow: 0 0 15px #3fffa4, inset 0 0 10px #3fffa4;
@@ -107,7 +107,7 @@
             transform: translateY(-2px);
         }
 
-        /* Colchetes que aparecem no hover */
+        /* colchetes que aparecem no hover */
         .hacker-btn::before {
             content: '[';
             position: absolute;
@@ -140,7 +140,7 @@
         <div class="button-container">
             <button class="hacker-btn" onclick="window.location.href='https://github.com/seu-github'">GitHub</button>
             <button class="hacker-btn" onclick="window.location.href='https://linkedin.com/in/seu-linkedin'">LinkedIn</button>
-            <button class="hacker-btn" onclick="window.location.href='projetos.html'">Projetos</button>
+            <button class="hacker-btn" onclick="window.location.href='https://github.com/thaychon'">Projetos</button>
         </div>
     </div>
 
